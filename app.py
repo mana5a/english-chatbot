@@ -12,7 +12,7 @@ def bot():
     msg = resp.message()
     responded = False
     if 'hello' in incoming_msg:
-        msg.body("world")
+        msg.body("it's me :D")
         responded = True
     if 'bye' in incoming_msg:
         msg.body("Sayonara")
