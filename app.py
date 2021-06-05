@@ -28,7 +28,7 @@ def bot():
         msg.body("There are "+str(ct)+" puzzles available")
         responded = True
     if 'puzzle' in incoming_msg:
-        randomPuzzle = listPuzzles[0][0]
+        randomPuzzle = random.choice(listPuzzles)[0]
         msg.body("Here's a puzzle for you!")
         msg.media(randomPuzzle)
         responded = True 
