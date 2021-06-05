@@ -23,7 +23,7 @@ def bot():
 
     responded = False
     if 'hello' in incoming_msg:
-        msg.body("There are "+ct+" puzzles available")
+        msg.body("There are "+str(ct)+" puzzles available")
         responded = True
     if 'bye' in incoming_msg:
         msg.body("Sayonara")
