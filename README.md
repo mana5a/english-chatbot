@@ -2,5 +2,6 @@
 Twilio-Heroku connection for whatsapp chatbot 
 
 TODO: 
-> connect to Notion backend 
+> connect to Notion backend
+> 
 > try Oxford dictionary API 
