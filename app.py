@@ -16,7 +16,7 @@ def bot():
     resp = MessagingResponse()
     msg = resp.message()    
     page = notionConnect()
-    for child in page.children 
+    for child in page.children:
         response = child.title
 
     responded = False
