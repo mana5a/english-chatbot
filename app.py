@@ -2,6 +2,7 @@ from flask import Flask, request
 import requests
 from twilio.twiml.messaging_response import MessagingResponse
 from notion.client import NotionClient
+import random 
 app = Flask(__name__)
 
 def notionConnect():
@@ -17,7 +18,8 @@ def bot():
     msg = resp.message()    
     page = notionConnect()
     ct = 0 
-    for obj in page.collection.get_rows():
+    items = page.collection.get_rows()
+    for obj in items:
         print(obj.title)
         ct+=1
 
@@ -25,6 +27,11 @@ def bot():
     if 'hello' in incoming_msg:
         msg.body("There are "+str(ct)+" puzzles available")
         responded = True
+    if 'puzzle' in incoming_msg:
+        randomPuzzle = random.choice(items).file
+        msg.body("Here's a puzzle for you!")
+        msg.media(randomPuzzle)
+        responded = True 
     if 'bye' in incoming_msg:
         msg.body("Sayonara")
         responded = True
