@@ -24,7 +24,7 @@ def bot():
         ct+=1
 
     responded = False
-    if 'hello' in incoming_msg:
+    if 'how many' in incoming_msg:
         msg.body("There are "+str(ct)+" puzzles available")
         responded = True
     if 'puzzle' in incoming_msg:
