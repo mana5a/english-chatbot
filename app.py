@@ -18,9 +18,9 @@ def bot():
     msg = resp.message()    
     page = notionConnect()
     ct = 0 
-    items = page.collection.get_rows()
-    for obj in items:
-        print(obj.title)
+    listPuzzles = []
+    for obj in page.collection.get_rows():
+        listPuzzles.append(obj.file)
         ct+=1
 
     responded = False
@@ -28,7 +28,7 @@ def bot():
         msg.body("There are "+str(ct)+" puzzles available")
         responded = True
     if 'puzzle' in incoming_msg:
-        randomPuzzle = random.choice(items).file
+        randomPuzzle = listPuzzles[0][0]
         msg.body("Here's a puzzle for you!")
         msg.media(randomPuzzle)
         responded = True 
